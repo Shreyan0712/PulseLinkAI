@@ -1,0 +1,11 @@
+venv/
+*.pyc
+__pycache__/
+
+.env
+.env.*
+
+
+sql_app.db
+
+.vscode/
