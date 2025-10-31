@@ -1,17 +1,27 @@
-
-
 import groq
-from fastapi import Request
+from fastapi import Request, UploadFile  # <-- Make sure UploadFile is imported
 from app.core.config import settings
+from app.schemas.chat_schema import Message
+from typing import List
 
 
 SYSTEM_INSTRUCTION = (
     "You are PulseLinkAI, a secure, HIPAA-compliant digital health assistant. "
-    "Your goal is to help users navigate healthcare, schedule appointments, "
-    "and explain medical reports. "
-    "CRITICAL: NEVER offer a diagnosis, treatment, or specific medical advice. "
-    "If asked for medical advice, state you are an assistant, not a doctor. "
-    "Encourage the user to use the app's features (scheduling or report analysis)."
+    "Your role is to be a supportive and informational conversational partner."
+    
+    "When a user describes symptoms (e.g., 'I have a headache and fever'), "
+    "your response MUST follow this exact two-part structure:"
+    
+    "PART 1: First, provide immediate, general, non-prescriptive self-care tips. "
+    "Good examples are: 'get plenty of rest,' 'stay hydrated by drinking water or clear fluids,' "
+    "or 'a cool compress on your forehead might help you feel more comfortable.' "
+    
+    "PART 2: After providing the tips, you MUST state your limitations. "
+    "Explain that you are an AI, not a doctor, and this is general information, not medical advice. "
+    "Conclude by strongly recommending they consult a healthcare professional for a proper diagnosis."
+    
+    "CRITICAL: You are stateless. DO NOT ask follow-up questions like 'Would you like some tips?'. "
+    "You must provide the tips and the disclaimer in one single, complete response."
 )
 
 
@@ -50,23 +60,45 @@ def get_ai_client(request: Request):
     """
     return request.app.state.ai_client
 
-
-def get_chat_response(user_input: str, client: groq.Groq) -> str:
+def transcribe_audio(client: groq.Groq, audio_file: UploadFile) -> str | None:
     """
-    Sends user input to the Groq model and returns the response.
+    Transcribes an audio file using Groq's Whisper API.
+    """
+    try:
+        # We pass the file-like object directly to the API
+        # We don't specify the language, so Whisper will auto-detect it.
+        transcription = client.audio.transcriptions.create(
+            file=(audio_file.filename, audio_file.file, audio_file.content_type),
+            model="whisper-large-v3"
+        )
+        return transcription.text
+
+    except groq.APIError as e:
+        print(f"Groq STT Error: {e}")
+        return None
+    except Exception as e:
+        print(f"General STT Error: {e}")
+        return None
+
+def get_chat_response(messages: List[Message], client: groq.Groq) -> str:
+    """
+    Sends the full conversation history to the Groq model.
     """
     if not client:
         return "I am sorry, the AI service is currently unavailable."
-        
+
+    # 1. Create the system message object
+    system_message = {"role": "system", "content": SYSTEM_INSTRUCTION}
+    
+    # 2. Convert your list of Pydantic Message models into a list of dictionaries
+    #    that the Groq API can understand.
+    messages_for_api = [msg.model_dump() for msg in messages]
+
     try:
-        
         response = client.chat.completions.create(
-            
-            model="llama-3.1-8b-instant",
-            messages=[
-                {"role": "system", "content": SYSTEM_INSTRUCTION},
-                {"role": "user", "content": user_input}
-            ]
+            model="llama-3.1-8b-instant", 
+            # 3. Send the system prompt *plus* the entire chat history
+            messages=[system_message] + messages_for_api
         )
         
         if response.choices and response.choices[0].message:

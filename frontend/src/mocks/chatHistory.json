@@ -1,0 +1,40 @@
+[
+  {
+    "id": "thread-1",
+    "title": "Blood pressure concerns",
+    "date": "2025-10-28",
+    "messages": [
+      {
+        "id": "msg-1",
+        "role": "user",
+        "content": "I've been experiencing high blood pressure lately. What should I do?",
+        "timestamp": "2025-10-28T10:30:00Z"
+      },
+      {
+        "id": "msg-2",
+        "role": "assistant",
+        "content": "I understand your concern about high blood pressure. Here are some immediate steps you can take:\n\n1. Monitor your BP regularly\n2. Reduce salt intake\n3. Exercise regularly\n4. Manage stress\n5. Get adequate sleep\n\nI'd recommend consulting with a cardiologist for a proper evaluation. Would you like me to help you find one?",
+        "timestamp": "2025-10-28T10:30:15Z"
+      }
+    ]
+  },
+  {
+    "id": "thread-2",
+    "title": "Skin rash treatment",
+    "date": "2025-10-25",
+    "messages": [
+      {
+        "id": "msg-3",
+        "role": "user",
+        "content": "I have a rash on my arm that's been there for 3 days. It's itchy and red.",
+        "timestamp": "2025-10-25T14:20:00Z"
+      },
+      {
+        "id": "msg-4",
+        "role": "assistant",
+        "content": "I can help you with that. Based on your description, it could be:\n\n- Contact dermatitis\n- Allergic reaction\n- Eczema\n- Other skin conditions\n\nFor proper diagnosis and treatment, I recommend seeing a dermatologist. In the meantime:\n\n- Avoid scratching\n- Keep the area clean and dry\n- Apply a cold compress\n- Avoid potential allergens\n\nWould you like me to help you book an appointment with a dermatologist?",
+        "timestamp": "2025-10-25T14:20:20Z"
+      }
+    ]
+  }
+]

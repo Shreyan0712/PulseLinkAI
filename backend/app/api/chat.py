@@ -1,21 +1,30 @@
-
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException, Request
 from app.schemas.chat_schema import ChatRequest, ChatResponse
-from app.services.nlp_service import get_chat_response, get_ai_client 
-from app.api.auth import get_current_user
-from app.models.user import User as UserModel
+from app.services.nlp_service import get_chat_response, get_ai_client
 
 router = APIRouter()
 
 @router.post("/", response_model=ChatResponse)
 def handle_chat(
-    *,
     chat_request: ChatRequest,
-    current_user: UserModel = Depends(get_current_user),
-    
-    ai_client = Depends(get_ai_client) 
+    request: Request,
+    ai_client = Depends(get_ai_client)
 ):
-    user_input = chat_request.text
-    
-    ai_response = get_chat_response(user_input, ai_client)
-    return ChatResponse(response=ai_response)
+    """
+    Handles incoming chat messages from the frontend.
+    """
+    try:
+        if not ai_client:
+            raise HTTPException(status_code=500, detail="AI client not initialized")
+
+        # Get the AI's response from your Groq model
+        ai_response_text = get_chat_response(chat_request.messages, ai_client)
+
+        # Return the AI's response to the frontend
+        return ChatResponse(response=ai_response_text)
+
+    except HTTPException as e:
+        raise e
+    except Exception as e:
+        print("Error in /chat route:", e)
+        raise HTTPException(status_code=500, detail="Internal server error")

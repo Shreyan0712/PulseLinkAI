@@ -1,0 +1,162 @@
+[
+  {
+    "id": "1",
+    "name": "Dr. Priya Sharma",
+    "rating": 4.8,
+    "reviews": 234,
+    "specialization": "Cardiology",
+    "description": "Senior cardiologist with expertise in preventive cardiology and heart disease management",
+    "fee": 800,
+    "experience": 15,
+    "languages": ["English", "Hindi", "Marathi"],
+    "address": "Apollo Clinic, Bandra West",
+    "city": "Mumbai",
+    "pincode": "400050",
+    "availability": "Available Today",
+    "slots": {
+      "2025-11-01": {
+        "morning": ["09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM"],
+        "afternoon": ["02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM"],
+        "evening": ["05:00 PM", "05:30 PM", "06:00 PM"]
+      },
+      "2025-11-02": {
+        "morning": ["09:00 AM", "09:30 AM", "10:00 AM"],
+        "afternoon": ["02:00 PM", "02:30 PM", "03:00 PM"],
+        "evening": ["05:00 PM", "05:30 PM"]
+      }
+    }
+  },
+  {
+    "id": "2",
+    "name": "Dr. Rajesh Kumar",
+    "rating": 4.9,
+    "reviews": 456,
+    "specialization": "Dermatology",
+    "description": "Expert dermatologist specializing in skin conditions, cosmetic procedures, and laser treatments",
+    "fee": 1000,
+    "experience": 18,
+    "languages": ["English", "Hindi", "Tamil"],
+    "address": "Fortis Hospital, Andheri East",
+    "city": "Mumbai",
+    "pincode": "400069",
+    "availability": "Available Tomorrow",
+    "slots": {
+      "2025-11-01": {
+        "afternoon": ["03:00 PM", "03:30 PM", "04:00 PM"],
+        "evening": ["06:00 PM", "06:30 PM", "07:00 PM"]
+      },
+      "2025-11-02": {
+        "morning": ["10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM"],
+        "afternoon": ["02:00 PM", "02:30 PM", "03:00 PM"],
+        "evening": ["05:00 PM", "05:30 PM", "06:00 PM"]
+      }
+    }
+  },
+  {
+    "id": "3",
+    "name": "Dr. Anjali Mehta",
+    "rating": 4.7,
+    "reviews": 189,
+    "specialization": "Pediatrics",
+    "description": "Compassionate pediatrician dedicated to child health and development",
+    "fee": 600,
+    "experience": 12,
+    "languages": ["English", "Hindi", "Gujarati"],
+    "address": "Lilavati Hospital, Bandra West",
+    "city": "Mumbai",
+    "pincode": "400050",
+    "availability": "Available Today",
+    "slots": {
+      "2025-11-01": {
+        "morning": ["08:30 AM", "09:00 AM", "09:30 AM", "10:00 AM"],
+        "afternoon": ["01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM"],
+        "evening": ["04:30 PM", "05:00 PM", "05:30 PM"]
+      },
+      "2025-11-02": {
+        "morning": ["08:30 AM", "09:00 AM", "09:30 AM"],
+        "afternoon": ["01:00 PM", "01:30 PM", "02:00 PM"]
+      }
+    }
+  },
+  {
+    "id": "4",
+    "name": "Dr. Vikram Singh",
+    "rating": 4.6,
+    "reviews": 312,
+    "specialization": "General Physician",
+    "description": "Experienced general physician providing comprehensive primary care services",
+    "fee": 500,
+    "experience": 10,
+    "languages": ["English", "Hindi", "Punjabi"],
+    "address": "Max Healthcare, Powai",
+    "city": "Mumbai",
+    "pincode": "400076",
+    "availability": "Available Today",
+    "slots": {
+      "2025-11-01": {
+        "morning": ["09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM"],
+        "afternoon": ["02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM"],
+        "evening": ["05:30 PM", "06:00 PM", "06:30 PM"]
+      },
+      "2025-11-02": {
+        "morning": ["09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM"],
+        "afternoon": ["02:00 PM", "02:30 PM", "03:00 PM"],
+        "evening": ["05:30 PM", "06:00 PM"]
+      }
+    }
+  },
+  {
+    "id": "5",
+    "name": "Dr. Neha Desai",
+    "rating": 4.9,
+    "reviews": 421,
+    "specialization": "Psychiatry",
+    "description": "Mental health specialist with expertise in anxiety, depression, and stress management",
+    "fee": 1200,
+    "experience": 14,
+    "languages": ["English", "Hindi", "Marathi"],
+    "address": "Kokilaben Hospital, Andheri West",
+    "city": "Mumbai",
+    "pincode": "400053",
+    "availability": "Available Tomorrow",
+    "slots": {
+      "2025-11-02": {
+        "morning": ["10:00 AM", "10:30 AM", "11:00 AM"],
+        "afternoon": ["03:00 PM", "03:30 PM", "04:00 PM"],
+        "evening": ["06:00 PM", "06:30 PM", "07:00 PM"]
+      },
+      "2025-11-03": {
+        "morning": ["10:00 AM", "10:30 AM", "11:00 AM"],
+        "afternoon": ["03:00 PM", "03:30 PM"],
+        "evening": ["06:00 PM", "06:30 PM"]
+      }
+    }
+  },
+  {
+    "id": "6",
+    "name": "Dr. Arjun Reddy",
+    "rating": 4.8,
+    "reviews": 278,
+    "specialization": "Cardiology",
+    "description": "Interventional cardiologist specializing in minimally invasive cardiac procedures",
+    "fee": 900,
+    "experience": 16,
+    "languages": ["English", "Hindi", "Telugu"],
+    "address": "Jaslok Hospital, Peddar Road",
+    "city": "Mumbai",
+    "pincode": "400026",
+    "availability": "Available Today",
+    "slots": {
+      "2025-11-01": {
+        "morning": ["08:00 AM", "08:30 AM", "09:00 AM", "09:30 AM"],
+        "afternoon": ["01:00 PM", "01:30 PM", "02:00 PM"],
+        "evening": ["04:30 PM", "05:00 PM", "05:30 PM"]
+      },
+      "2025-11-02": {
+        "morning": ["08:00 AM", "08:30 AM", "09:00 AM"],
+        "afternoon": ["01:00 PM", "01:30 PM"],
+        "evening": ["04:30 PM", "05:00 PM"]
+      }
+    }
+  }
+]
