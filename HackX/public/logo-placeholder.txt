@@ -1,0 +1,22 @@
+IMPORTANT: Replace placeholder logos with provided images
+
+Required logo files:
+1. logo-full.png - Full logo with text (used in header and auth screens)
+2. logo-mark.png - Icon/mark only (used as avatar and favicon)
+
+Current implementation uses placeholder "P" letters. 
+To use actual logos:
+1. Place logo-full.png and logo-mark.png in the public/ folder
+2. Update components to reference the images:
+   - Start.tsx: Replace circular div with <img src="/logo-mark.png" />
+   - Login.tsx: Replace circular div with <img src="/logo-mark.png" />
+   - Signup.tsx: Replace circular div with <img src="/logo-mark.png" />
+   - Navbar.tsx: Replace circular div with <img src="/logo-mark.png" />
+   - QuickChat.tsx: Replace circular div with <img src="/logo-mark.png" />
+
+Example code:
+<img 
+  src="/logo-mark.png" 
+  alt="PulseLink AI Logo" 
+  className="w-24 h-24 object-contain"
+/>
